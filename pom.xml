@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.my.ansicon</groupId>
 	<artifactId>aaaserver</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${spring-boot.version}</version>
 	<name>aaaserver</name>
 	<description>Authentication and Authorization Server with MySQL persistense and Embedded MariaDB4J</description>
 
@@ -20,7 +20,8 @@
 		<java.version>1.8</java.version>
 		<mariaDB4j.version>2.4.0</mariaDB4j.version>
 		<logbook.version>1.7.1</logbook.version>	
-		<openui.version>1.2.32</openui.version>		
+		<openui.version>1.2.32</openui.version>	
+		<spring-boot.version>2.1.4.RELEASE</spring-boot.version>	
 		<spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
     </properties>
 
@@ -105,6 +106,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+  		<finalName>aaaserver-${spring-boot.version}</finalName>      
     </build>
 
     <repositories>

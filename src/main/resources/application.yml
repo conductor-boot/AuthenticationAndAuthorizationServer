@@ -10,9 +10,5 @@ spring:
   application:
     name: aaaserver
 
-server:
-  port: 911
-  use-forward-headers: true
-
 check-user-scopes: true
 awaitTermination: 3000
