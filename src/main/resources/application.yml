@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: 
+     - default
+     - database-default
+     - logbook
+     - mariadb-embedded
+     - ports
+     - security
+  application:
+    name: aaaserver
+
+server:
+  port: 911
+  use-forward-headers: true
+
+check-user-scopes: true
+awaitTermination: 3000

@@ -1,0 +1,10 @@
+logbook:
+  filter:
+    enabled: true
+  write:
+    level: info
+    chunk-size: 10000
+  format:
+    style: splunk
+  strategy: body-only-if-status-at-least
+  minimum-status: 400
