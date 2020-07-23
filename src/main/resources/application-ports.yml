@@ -1,5 +1,5 @@
 server:
-  port: 911
+  port: 1024
   use-forward-headers: true
   
 mariadb4j:
