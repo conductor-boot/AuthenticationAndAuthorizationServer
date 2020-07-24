@@ -10,12 +10,8 @@ spring:
   application:
     name: aaaserver
   flyway:
-    validate-on-migrate: false
-    baseline-on-migrate: false
-    ignore-missing-migrations: true
-    
-flyway:
-  ignore-missing-migrations: true
+    validate-on-migrate: true
+    baseline-on-migrate: true
 
 check-user-scopes: true
 awaitTermination: 3000

@@ -2,7 +2,6 @@ package com.my.ansicon.aaaserver.database.config;
 
 import javax.sql.DataSource;
 
-import org.flywaydb.core.Flyway;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -47,10 +46,6 @@ public class EmbeddedMariaDbConfig {
 	
 	@Value("${mariadb4j.connect.timeout:31536000}")
 	public String connectTimeout;
-	
-	private String flywayDBUrl;
-	private String flywayDBUser;
-	private String flywayDBPwd;
 	
     @Bean("mariaDB4jSpringService")
     public MariaDB4jSpringService mariaDB4jSpringService() {
@@ -101,21 +96,11 @@ public class EmbeddedMariaDbConfig {
                           @Value("${spring.datasource.driver-class-name:org.mariadb.jdbc.Driver}") String datasourceDriver) throws ManagedProcessException {
         //Create our database with default root user and no password
         mariaDB4jSpringService.getDB().createDB(databaseName);
-        System.out.println(mariaDB4jSpringService.getDB().getConfiguration().isSecurityDisabled());
 
         DBConfigurationBuilder config = mariaDB4jSpringService.getConfiguration();
         
 
         String databaseUrl = config.getURL(databaseName)+"?autoReconnect=true";
-	    
-	    System.setProperty("jdbc.url", databaseUrl);
-	    System.setProperty("flyway.validate-on-migrate", "false");
-	    System.setProperty("flyway.baseline-on-migrate", "false");
-	    System.setProperty("flyway.ignore-missing-migrations", "true");
-	    
-	    this.flywayDBUrl = databaseUrl;
-	    this.flywayDBUser = datasourceUsername;
-	    this.flywayDBPwd = datasourcePassword;
         
         return DataSourceBuilder
                 .create()
@@ -124,14 +109,5 @@ public class EmbeddedMariaDbConfig {
                 .url(databaseUrl)
                 .driverClassName(datasourceDriver)
                 .build();
-    }
-    
-    @Bean(initMethod = "migrate")
-    @DependsOn("datasource")
-    Flyway flyway() {
-        Flyway flyway = new Flyway();
-        flyway.setBaselineOnMigrate(true);
-        flyway.setDataSource(this.flywayDBUrl, this.flywayDBUser, this.flywayDBPwd);
-        return flyway;
     }
 }

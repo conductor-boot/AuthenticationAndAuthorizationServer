@@ -21,9 +21,4 @@ mariadb4j:
     timeout: 31536000
   deleteBaseAndDataDirOnShutdown: false
   security:
-    disabled: false
-
-## Conductor MYSQL Configuration for Hikari DataSource
-jdbc:
-  username: ${spring.datasource.username}
-  password: ${spring.datasource.password}
+    disabled: true
