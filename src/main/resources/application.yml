@@ -9,6 +9,13 @@ spring:
      - security
   application:
     name: aaaserver
+  flyway:
+    validate-on-migrate: false
+    baseline-on-migrate: false
+    ignore-missing-migrations: true
+    
+flyway:
+  ignore-missing-migrations: true
 
 check-user-scopes: true
 awaitTermination: 3000

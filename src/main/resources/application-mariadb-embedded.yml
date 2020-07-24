@@ -21,7 +21,7 @@ mariadb4j:
     timeout: 31536000
   deleteBaseAndDataDirOnShutdown: false
   security:
-    disabled: true
+    disabled: false
 
 ## Conductor MYSQL Configuration for Hikari DataSource
 jdbc:

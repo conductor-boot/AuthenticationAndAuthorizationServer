@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 
 @SpringBootApplication
-@EnableAutoConfiguration
 @EnableAuthorizationServer
+@EnableAutoConfiguration
 public class AaaserverApplication {
 
 	public static void main(String[] args) {
