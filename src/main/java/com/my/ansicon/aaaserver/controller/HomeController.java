@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 	
-    @RequestMapping ("/openapi")
+    @RequestMapping ("/")
     public String swaggerUI() {
 	return "redirect:/swagger-ui.html";
     }
